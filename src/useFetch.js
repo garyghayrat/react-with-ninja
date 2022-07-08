@@ -22,14 +22,15 @@ const useFetch = (url) => {
           setIsPending(false);
         })
         .catch((err) => {
-          if (err.name === 'AbortError') {
-            console.log('fetch aborted');
+          if (err.name === "AbortError") {
+            console.log("fetch aborted");
           } else {
-          setError(err.message);
-          setIsPending(false);
+            setError(err.message);
+            setIsPending(false);
           }
         });
-    }, 1000);
+      // Change value below to slow it down
+    }, 0);
 
     return () => abortCont.abort();
     // return () => console.log('aborted?why?')
